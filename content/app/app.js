@@ -27,12 +27,6 @@
 
         })
 
-    /*
-    .run(['$http', function ($http) {
-        $http.defaults.headers.common['Authorization'] = 'Basic user:password';
-    }]);
-    */
-
 })();
 
 

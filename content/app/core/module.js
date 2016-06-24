@@ -6,8 +6,7 @@
         // Third parties                        
         //'angular-loading-bar',
         'toastr',
-        'ngRoute',
-        'jsonFormatter'
+        'ngRoute'
 
         //// Angular addon
         //'ngSanitize',

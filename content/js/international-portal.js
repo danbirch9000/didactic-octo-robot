@@ -736,8 +736,7 @@ angular.module("toastr").run(["$templateCache", function ($templateCache) {
         // Third parties                        
         //'angular-loading-bar',
         'toastr',
-        'ngRoute',
-        'jsonFormatter'
+        'ngRoute'
 
         //// Angular addon
         //'ngSanitize',
@@ -977,12 +976,6 @@ angular.module("toastr").run(["$templateCache", function ($templateCache) {
 
 
         })
-
-    /*
-    .run(['$http', function ($http) {
-        $http.defaults.headers.common['Authorization'] = 'Basic user:password';
-    }]);
-    */
 
 })();
 

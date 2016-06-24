@@ -15,8 +15,9 @@ function gulpConfig() {
             './node_modules/underscore/**/*',
             './node_modules/angular/**/*',
             './node_modules/angular-route/**/*',
-            './node_modules/jsonformatter/dist/**/*',
-            './node_modules/check-types/src/**/*'
+            './node_modules/check-types/src/**/*',
+            './node_modules/bootstrap-sass/assets/**/*',
+            './node_modules/font-awesome/**/*'
         ],
         nodeModulesDest: './source/node_modules_libraries/'
     };
