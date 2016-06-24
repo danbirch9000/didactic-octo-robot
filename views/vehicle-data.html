@@ -1,0 +1,78 @@
+﻿<div ng-include src="'/views/shared/header.html'"></div>
+<div class="container">
+    <div class="page-content">
+        <h1>Vehicle Data</h1>
+
+        <div class="filter-controls">
+            <section class="filter">
+                <h2>Country</h2>
+                <select ng-options="country as country.countryName for country in vm.countries"
+                        ng-model="vm.selection.country"
+                        ng-change="vm.getBrands()"
+                        class="form-control input-sm"></select>
+            </section>
+            <section class="filter">
+                <h2>Brands</h2>
+                <select ng-disabled="vm.brands.length == 0" ng-options="brand as brand.brandName for brand in vm.brands"
+                        ng-model="vm.selection.brand"
+                        ng-change="vm.getModelRanges()"
+                        class="form-control input-sm"></select>
+            </section>
+            <section class="filter">
+                <h2>Model Ranges</h2>
+                <select ng-disabled="vm.selection.brand == null" ng-options="modelRange as modelRange.modelRangeName for modelRange in vm.modelRanges"
+                        ng-model="vm.selection.modelRange"
+                        ng-change="vm.getGenerationMarks()"
+                        class="form-control input-sm"></select>
+            </section>
+            <section class="filter">
+                <h2>Generation Mark</h2>
+                <select ng-disabled="vm.selection.modelRange == null" 
+                        ng-options="generationMark as generationMark.generationMark for generationMark in vm.generationMarks"
+                        ng-model="vm.selection.generationMark"
+                        ng-change="vm.getDerivatives()"
+                        class="form-control input-sm"></select>
+            </section>
+            <section class="filter">
+                <h2>Derivatives</h2>
+                <select ng-disabled="vm.selection.generationMark == null" 
+                        ng-options="derivative as derivative.derivativeName for derivative in vm.derivatives"
+                        ng-model="vm.selection.derivative"
+                        ng-change="vm.getVehicleData()"
+                        class="form-control input-sm"></select>
+            </section>
+            <section class="filter">
+                <h2>Price Lists</h2>
+                <select ng-disabled="vm.selection.derivative == null" 
+                        ng-options="pricelist as pricelist.effectiveFrom + ' - ' + pricelist.effectiveTo  for pricelist in vm.pricelists"
+                        ng-model="vm.selection.pricelist"
+                        ng-change="vm.selectThisPricelist()"
+                        class="form-control input-sm"></select>
+            </section>
+            <section class="filter">
+                <h2>Data</h2>
+                <select ng-disabled="vm.selection.pricelist == null" 
+                        ng-options="item as item.key for item in vm.dataTypes"
+                        ng-model="vm.selection.dataType"
+                        ng-change="vm.getDataTypeData()"
+                        class="form-control input-sm"></select>
+            </section>
+        </div>
+
+        <div class="breadcrumb">
+            <span ng-show="vm.selection.country.countryName != undefined">{{vm.selection.country.countryName}}</span>
+            <span ng-show="vm.selection.brand.brandName != undefined"> > {{vm.selection.brand.brandName}}</span>
+            <span ng-show="vm.selection.modelRange.modelRangeName != undefined"> > {{vm.selection.modelRange.modelRangeName}}</span>
+            <span ng-show="vm.selection.generationMark.generationMark != undefined"> > {{vm.selection.generationMark.generationMark}}</span>
+            <span ng-show="vm.selection.derivative.derivativeName != undefined"> > {{vm.selection.derivative.derivativeName}}</span>
+        </div>
+
+        <h4>{{vm.apiDemoTitle}}</h4>
+
+        <div class="json-tree-container">
+            <json-tree json-tree-data="vm.apiData" class="json-tree"></json-tree>
+            <json-formatter json="vm.apiData" open="1"></json-formatter>
+        </div>
+
+    </div>
+</div>

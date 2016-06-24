@@ -1,0 +1,43 @@
+﻿$valuation-summary-base: #F2F2F2;
+$blue_va:#428bca;
+$danger: #d9534f;
+$brand-primary:         #ff8f20 !default; // #337ab7
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          $danger !default;
+
+$approve: #439022;
+$query: #AF3295;
+$change: $blue_va;
+
+$specEdit : #A29F9F;
+
+$capgreen: #2AB96A;
+$soleraOrange: #e1772e;
+$soleraYellow: #f2aa28;
+$soleraGrey: #bdbebe;
+$soleraDarkGray: #82776f;
+$soleraCharcoal: #272425;
+
+$statusAdded: green;
+$statusDeleted: blue;
+$statusUnchanged: transparent;
+$statusModified: orange;
+$statusRejected: $danger;
+
+//** Status colours as used in the app
+$status-added-background: #73BEFF; 
+$status-modified-background: #FFF945;
+$status-previously-rejected-background: #FF91A2;
+$status-rejected-background: #FF1925;
+$status-deleted-background: #f2f2f2;
+$status-accepted-background:$approve;
+
+
+$bg-grey: #272727;
+$grey-links: #867870;
+//$prime-colour: #f97600;
+//$prime-colour: #c73939;
+$global-colour: #6872d9;
+$prime-colour: red; //not used anymore

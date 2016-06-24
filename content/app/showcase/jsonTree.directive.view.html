@@ -1,0 +1,19 @@
+﻿<span ng-if="dataType=='string' || dataType=='number'" class="val">{{jsonTreeData}}</span>
+
+
+<span ng-if="dataType=='object'">
+    <ul ng-class="{'has-children': hasChildren(jsonTreeData)}">
+        <li ng-repeat="(key, val) in jsonTreeData" ng-class="{'is-header' : isHeader(val) , 'links' : key =='links' }">
+            <span class="key">{{key | titleCase}}</span><json-tree json-tree-data="val"></json-tree>
+        </li>
+    </ul>
+</span>
+
+
+<span ng-if="dataType=='array'">
+    <ul>
+        <li ng-repeat="(key, val) in jsonTreeData" ng-class="{'is-header' : isHeader(val)}">
+            <json-tree json-tree-data="val"></json-tree>
+        </li>
+    </ul>
+</span>

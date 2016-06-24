@@ -1,0 +1,88 @@
+﻿@mixin calc-width($fixed) {
+	width: unquote("-moz-calc(100% - ")$fixed unquote(")");
+	width: unquote("webkit-calc(100% - ")$fixed unquote(")");
+	width: unquote("-o-calc(100% - ")$fixed unquote(")");
+	width: unquote("calc(100% - ")$fixed unquote(")");
+}
+
+@mixin transition-all() {
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+@mixin rotation($deg){
+	-ms-transform: rotate($deg); /* IE 9 */
+	-webkit-transform: rotate($deg); /* Chrome, Safari, Opera */
+	transform: rotate($deg);
+}
+
+/// Mixin to customize scrollbars
+/// Beware, this does not work in all browsers
+/// @author Hugo Giraudel
+/// @param {Length} $size - Horizontal scrollbar's height and vertical scrollbar's width
+/// @param {Color} $foreground-color - Scrollbar's color
+/// @param {Color} $background-color [mix($foreground-color, white, 50%)] - Scrollbar's color
+/// @example scss - Scrollbar styling
+///   @include scrollbars(.5em, slategray);
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  ::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+
+@mixin scrollWindows($class, $height) {
+
+$medScrollWindowHeight: 500px;
+    .#{$class} {
+        max-height: $height; 
+        overflow: auto;
+        position: relative;
+        overflow-y: scroll;
+    }
+    .#{$class} + .#{$class} {
+        overflow: hidden;
+        top: 0;
+        width: calc(100% - 7px);
+        height: auto;
+        position: absolute;
+    }
+}
+
+@mixin flexParent() {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: start;
+    justify-content: space-between;
+    -webkit-align-content: flex-start;
+    -ms-flex-line-pack: start;
+    align-content: flex-start;
+    -webkit-align-items: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
